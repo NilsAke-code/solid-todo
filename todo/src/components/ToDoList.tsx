@@ -6,11 +6,14 @@ export default function ToDoList() {
   const [uppgifter, setUppgifter] = createSignal< {text: string, completed: boolean} []>([]);
 
   const AddUppgift = () => {
-    setUppgifter([...uppgifter(), {text: text(), completed: false}]); setText("");
+    setUppgifter([...uppgifter(), {text: text(), completed: false}]);
+    setText("");
   }
 
-  function toggleCompleted() {
-    set
+  function toggleCompleted(index: number) {
+    const tempuppgifter = uppgifter();
+    tempuppgifter[index].completed = !tempuppgifter[index].completed;
+    setUppgifter([...tempuppgifter]);
   }
 
   return (
@@ -23,12 +26,12 @@ export default function ToDoList() {
         <button class="btn-todo" onClick={(e) => AddUppgift()}>Lägg till</button>
       </div> 
         <ul>
-          {uppgifter().map((item) => (
-            <li>
-              <input type="checkbox" onInput={}
+          {uppgifter().map((item, index) => (
+            <li classList={{ taskCompleted: item.completed }}>
+              <input type="checkbox" onChange={() => toggleCompleted(index)} checked={item.completed}
 
               />
-              {item}
+              {item.text}
             </li>
           ))}
         </ul>
