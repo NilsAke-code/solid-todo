@@ -25,8 +25,8 @@ export default function ToDoList() {
     <div class="todo-list-page">
       <div class="container">
         <h1>Todo Lista</h1>
-        <div class="input-todo">
-          <input placeholder="Skriv en uppgift" 
+        <div class="input-wrapper">
+          <input placeholder="Skriv en uppgift"
           type="text" 
           value={text()} 
           onInput={(e) => setText(e.currentTarget.value)}
@@ -39,7 +39,7 @@ export default function ToDoList() {
           </input>
           <button class="btn-add" onClick={(e) => AddUppgift()}>Lägg till</button>
         </div> 
-          <ul>
+          <ul class="uppgifter">
             {uppgifter().map((item, index) => (
               <li classList={{ taskCompleted: item.completed }}>
                 <input type="checkbox" onChange={() => toggleCompleted(index)} checked={item.completed}

@@ -3,28 +3,26 @@
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
+  box-sizing: border-box;
 }
 
-button {
+button, input, textarea, select {
   border: none;
   background: none;
-  font: inherit;
-  color: inherit;
+  outline: none;
   cursor: pointer;
+  font: inherit;
 }
 
+.container {
+  background-color: #0087BE;
 
+  max-width: 40rem;
+  width: 100%;
 
-
-
-
-
-
-
-
-
-
-
+  border-radius: 0.8rem;
+  padding: 2rem;
+}
 
 .todo-list-page {
   min-height: 100vh;
@@ -37,38 +35,32 @@ button {
   background-color: #023341;
 }
 
-.input-todo {
+.input-wrapper {
+  position: relative;
   display: flex;
-  gap: 0.5rem;
-  padding: 0.5rem;
-}
-
-.input-todo input[type="text"] {
-  border: 1px solid #023341;
+  border: 2px solid #023341;
   border-radius: 0.4rem;
   padding: 0.3rem;
-
-
+  background-color: #ffffff;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
 }
 
-.btn-add {
+.input-wrapper input[placeholder="Skriv en uppgift"] {
+  color: #023341;
+  font-size: 1rem;
+}
 
+.input-wrapper input {
+  width: 100%;
+  padding-right: 10rem;
 }
 
 
 .container h1 {
   font-size: 2rem;
+  padding-bottom: 1rem;
   color: #023341;
-}
-
-.container {
-  background-color: #ffffff;
-
-  max-width: 40rem;
-  width: 100%;
-
-  border-radius: 0.5rem;
-  padding: 2rem;
 }
 
 .taskCompleted {
@@ -76,6 +68,46 @@ button {
   opacity: 0.4;
 }
 
-.btn-remove {
 
+.uppgifter {
+  display: flex;
+  
+  flex-direction: column;
+  gap: 0.8rem;
+  padding-top: 1rem;
 }
+
+.uppgifter li {
+  display: flex;
+  justify-content: space-between;
+
+
+  border: 2px solid #023341;
+  background-color: #4bb7e2;
+  padding: 1rem;
+}
+
+
+/* BUTTONS START*/
+
+.input-wrapper .btn-add {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: #023341;
+  color: #ffffff;
+  padding: 0.5rem 3rem;
+  border: none;
+  font-size: 0.8rem;
+}
+
+.btn-add:hover {
+  background-color: #083b4b;
+}
+
+.btn-remove:hover {
+  text-decoration: underline;
+}
+
+/* BUTTONS END*/
