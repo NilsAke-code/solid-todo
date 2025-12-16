@@ -4,7 +4,7 @@ import ToDoList from "~/components/ToDoList";
 export default function Home() {
   return (
     <main>
-      <Title>Hello World</Title>
+      <Title>Todo-List</Title>
       <ToDoList />
     </main>
   );
