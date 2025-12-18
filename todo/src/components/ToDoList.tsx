@@ -1,9 +1,12 @@
 import { createSignal } from "solid-js";
 import "./ToDoList.css";
+import EditItem from "./EditItem";
+import ViewItem from "./ViewItem";
+import { start } from "node:repl";
 
 export default function ToDoList() {
   const [text, setText] = createSignal("");
-  const [uppgifter, setUppgifter] = createSignal< {text: string, completed: boolean} []>([]);
+  const [uppgifter, setUppgifter] = createSignal<{text: string, completed: boolean} []>([]);
 
   const [editIndex, setEditIndex] = createSignal<number | null>(null);
   const [editText, setEditText] = createSignal("");
@@ -29,9 +32,9 @@ export default function ToDoList() {
     setEditText(text);
   }
 
-  function saveEdit(index: number) {
+  function saveEdit(index: number, value: string) {
     const tempuppgifter = uppgifter();
-    tempuppgifter[index].text = editText();
+    tempuppgifter[index].text = value;
     setUppgifter([...tempuppgifter]);
 
     setEditIndex(null);
@@ -43,7 +46,7 @@ export default function ToDoList() {
 
       <div class="container">
 
-        <h1>Todo Lista</h1>
+        <h1 class="text-8xl">Todo Lista</h1>
 
         <div class="input-wrapper">
 
@@ -65,11 +68,11 @@ export default function ToDoList() {
 
         </div>
 
-          <ul class="uppgifter">
+          <ul class="bg-blue-100">
 
             {uppgifter().map((item, index) => (
 
-              <li classList={{ taskCompleted: item.completed }}>
+              <li class="flex justify-between my-8 py-8" classList={{ taskCompleted: item.completed }}>
 
                 <input 
                   type="checkbox"
@@ -77,36 +80,11 @@ export default function ToDoList() {
                   checked={item.completed}
                 />
 
+               
                 {editIndex() === index ? (
-                  <>
-                    <input 
-                      type="text"
-                      value={editText()}
-                      onInput={(e) => setEditText(e.currentTarget.value)} 
-                    />
-
-                    <button class="btn-save" onClick={() => saveEdit(index)}>
-                      <i class="fa-solid fa-check" aria-hidden="true"></i>
-                    </button>
-
-                    <button class="btn-cancel" onClick={() => setEditIndex(null)}>
-                      <i class="fa-solid fa-times" aria-hidden="true"></i>
-                    </button>
-                    </>
+                  <EditItem value={editText()} onChange={(value) => setEditText(value)} onSave={(value) => saveEdit(index, value)} onCancel={() => setEditIndex(null)} />
                   ) : (
-                    <>
-                      {item.text}
-
-                      <button class="btn-edit" onClick={() => startEdit(index, item.text)}>
-                        <i class="fa-solid fa-pencil" aria-hidden="true"></i>
-                      </button>
-
-                      <button class="btn-remove" onClick={() => removeUppgift(index)}>
-                      Ta bort
-                      </button>
-
-                    
-                    </>
+                  <ViewItem text={item.text} onEdit={() => startEdit(index, item.text)} onRemove={() => removeUppgift(index)}/>
                 )}
               </li>
             ))}

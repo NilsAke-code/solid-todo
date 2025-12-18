@@ -4,7 +4,7 @@ export default function Banan() {
   return (
     <main>
       <Title>Hello</Title>
-      <h1>Banan</h1>
+      <div class="text-center text-green-300 text-4xl">Banan</div>
     </main>
   );
 }

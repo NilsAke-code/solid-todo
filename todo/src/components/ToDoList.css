@@ -61,7 +61,7 @@ button, input, textarea, select {
   font-size: 2rem;
   padding-bottom: 1rem;
   color: #023341;
-}
+} 
 
 .taskCompleted {
   text-decoration: line-through;
@@ -71,7 +71,7 @@ button, input, textarea, select {
 
 .uppgifter {
   display: flex;
-  
+
   flex-direction: column;
   gap: 0.8rem;
   padding-top: 1rem;
