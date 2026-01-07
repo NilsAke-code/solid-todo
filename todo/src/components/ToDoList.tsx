@@ -2,7 +2,6 @@ import { createSignal } from "solid-js";
 import "./ToDoList.css";
 import EditItem from "./EditItem";
 import ViewItem from "./ViewItem";
-import { start } from "node:repl";
 
 export default function ToDoList() {
   const [text, setText] = createSignal("");
@@ -68,11 +67,12 @@ export default function ToDoList() {
 
         </div>
 
-          <ul class="bg-blue-100">
+          <ul class="space-y-4 rounded-lg shadow-sm">
 
             {uppgifter().map((item, index) => (
 
-              <li class="flex justify-between my-8 py-8" classList={{ taskCompleted: item.completed }}>
+              <li class="flex items-center gap-4 border-2 border-[#023341] bg-blue-200 hover:bg-white transition px-3 py-3 rounded-md" 
+              classList={{ taskCompleted: item.completed }}>
 
                 <input 
                   type="checkbox"

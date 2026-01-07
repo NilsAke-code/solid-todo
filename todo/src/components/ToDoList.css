@@ -1,6 +1,4 @@
 * {
-  margin: 0;
-  padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   box-sizing: border-box;
@@ -71,20 +69,12 @@ button, input, textarea, select {
 
 .uppgifter {
   display: flex;
-
   flex-direction: column;
-  gap: 0.8rem;
-  padding-top: 1rem;
 }
 
 .uppgifter li {
   display: flex;
   justify-content: space-between;
-
-
-  border: 2px solid #023341;
-  background-color: #4bb7e2;
-  padding: 1rem;
 }
 
 
