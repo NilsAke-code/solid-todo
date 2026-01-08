@@ -11,18 +11,18 @@ type EditItemProps = {
 
 
 export default function EditItem(props: EditItemProps) {
-    let inputRef!:HTMLInputElement;
+    let inputRef!:HTMLTextAreaElement;
 
     onMount(() => {
         inputRef.focus();
     });
     return (
         <>
-            <input
-                class="flex-1 rounded border border-[#023341] px-2 py-1"
-                type="text"
+            <textarea
+                class="flex-1 rounded px-2 py-1 resize-y break-words whitespace-pre-wrap"
                 ref={inputRef}
                 value={props.value}
+                rows="2"
                 onInput={(e) => props.onChange(e.currentTarget.value)}
                 onKeyDown={(e) => {
                     if (e.key === "Enter") {
@@ -34,7 +34,7 @@ export default function EditItem(props: EditItemProps) {
                 }}
             />
 
-            <div class="flex items-center gap-4 shrink-0">
+            <div class="flex items-start gap-4 shrink-0">
             <button class="btn-save" onClick={() => props.onSave(props.value)}>
             <i class="fa-solid fa-check" aria-hidden="true"></i>
             </button>

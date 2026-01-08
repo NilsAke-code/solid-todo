@@ -4,15 +4,15 @@
   box-sizing: border-box;
 }
 
-button, input, textarea, select {
+/* button, input, textarea, select {
   border: none;
   background: none;
   outline: none;
   cursor: pointer;
   font: inherit;
-}
+} */
 
-.container {
+/* .container {
   background-color: #0087BE;
 
   max-width: 40rem;
@@ -20,9 +20,9 @@ button, input, textarea, select {
 
   border-radius: 0.8rem;
   padding: 2rem;
-}
+} */
 
-.todo-list-page {
+/* .todo-list-page {
   min-height: 100vh;
 
   display: flex;
@@ -31,9 +31,9 @@ button, input, textarea, select {
 
   padding: 1rem;
   background-color: #023341;
-}
+} */
 
-.input-wrapper {
+/* .input-wrapper {
   position: relative;
   display: flex;
   border: 2px solid #023341;
@@ -42,7 +42,7 @@ button, input, textarea, select {
   background-color: #ffffff;
   overflow: hidden;
   margin-bottom: 1.5rem;
-}
+} */
 
 .input-wrapper input[placeholder="Skriv en uppgift"] {
   color: #023341;
@@ -53,13 +53,6 @@ button, input, textarea, select {
   width: 100%;
   padding-right: 10rem;
 }
-
-
-.container h1 {
-  font-size: 2rem;
-  padding-bottom: 1rem;
-  color: #023341;
-} 
 
 .taskCompleted {
   text-decoration: line-through;
@@ -80,7 +73,7 @@ button, input, textarea, select {
 
 /* BUTTONS START*/
 
-.input-wrapper .btn-add {
+/* .input-wrapper .btn-add {
   position: absolute;
   top: 50%;
   right: 0;
@@ -94,10 +87,6 @@ button, input, textarea, select {
 
 .btn-add:hover {
   background-color: #083b4b;
-}
-
-.btn-remove:hover {
-  text-decoration: underline;
-}
+} */
 
 /* BUTTONS END*/
