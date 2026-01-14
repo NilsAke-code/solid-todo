@@ -10,6 +10,9 @@ app.config.timestamp_*.js
 .env
 .env*.local
 
+# Frontend
+
+
 # dependencies
 node_modules
 
@@ -26,3 +29,9 @@ gitignore
 # System Files
 .DS_Store
 Thumbs.db
+
+# Backend (.NET)
+backend/**/bin/
+backend/**/obj/
+backend/**/.vs/
+backend/**/*.csproj.user
